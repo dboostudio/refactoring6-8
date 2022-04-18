@@ -18,6 +18,9 @@ class InspectorTest{
 
     @Test
     public void a(){
+        NumberRange boundaryRange = NumberRange.builder().min(50).max(60).build();
+
+
         // readings 데이터 생성
         List<Reading> testReadings = new ArrayList<>();
         Reading outsideRange = Reading.builder().temp(47).time(LocalDateTime.of(2016, 11, 10, 9, 10)).build();
@@ -30,6 +33,6 @@ class InspectorTest{
         // station 생성
         Station station = Station.builder().name("ZB1").readings(testReadings).build();
 
-        assertEquals(inspector.readingOutsideRange(station, 50, 60).get(0), outsideRange);
+        assertEquals(inspector.readingOutsideRange(station, boundaryRange).get(0), outsideRange);
     }
 }

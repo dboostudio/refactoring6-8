@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 
 @Component
 public class Inspector {
-    public List<Reading> readingOutsideRange(Station station, Integer min, Integer max){
+    public List<Reading> readingOutsideRange(Station station, NumberRange range){
         return station.getReadings().stream()
-                .filter(r -> r.getTemp() < min || r.getTemp() > max)
+                .filter(r -> r.getTemp() < range.getMin() || r.getTemp() > range.getMax())
                 .collect(Collectors.toList());
     }
 }
