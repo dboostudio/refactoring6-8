@@ -30,6 +30,6 @@ class InspectorTest{
         // station 생성
         Station station = Station.builder().name("ZB1").readings(testReadings).build();
 
-        assertEquals(inspector.readingOutsideRange(station, 48, 60).get(0), outsideRange);
+        assertEquals(inspector.readingOutsideRange(station, 50, 60).get(0), outsideRange);
     }
 }
